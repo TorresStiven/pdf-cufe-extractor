@@ -1,7 +1,10 @@
 import sqlite3
 from pathlib import Path
 
-DB_PATH = Path("reports.db")
+# Carpeta donde se almacenará la base de datos (dentro del proyecto)
+DB_DIR = Path(__file__).parent / "database"
+DB_DIR.mkdir(parents=True, exist_ok=True)  # crea la carpeta si no existe
+DB_PATH = DB_DIR / "reports.db"
 
 
 def get_connection():
